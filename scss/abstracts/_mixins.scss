@@ -34,16 +34,20 @@
 
 @function spacingInUnits(
   $multiplier,
+  $min: 0,
   $breakpoint: 'xs',
   $map: $sizeUnitsSpacing
 ) {
   $unit: map-get($map, $breakpoint);
-  @return $unit * $multiplier;
+  $resolvedMin: ($multiplier / max($multiplier, 1)) * $min;
+  @return max($unit * $multiplier, $resolvedMin);
 }
 
 @mixin marginInUnitsDirect($top, $right, $bottom, $left, $breakpoint: 'xs') {
-  margin: spacingInUnits($top, $breakpoint) spacingInUnits($right, $breakpoint)
-    spacingInUnits($bottom, $breakpoint) spacingInUnits($left, $breakpoint);
+  margin: spacingInUnits($top, 0, $breakpoint)
+    spacingInUnits($right, 0, $breakpoint)
+    spacingInUnits($bottom, 0, $breakpoint)
+    spacingInUnits($left, 0, $breakpoint);
 }
 
 @mixin marginInUnits($top, $right, $bottom, $left) {
@@ -65,32 +69,41 @@
   }
 }
 
-@mixin paddingInUnitsDirect($top, $right, $bottom, $left, $breakpoint: 'xs') {
-  padding: spacingInUnits($top, $breakpoint) spacingInUnits($right, $breakpoint)
-    spacingInUnits($bottom, $breakpoint) spacingInUnits($left, $breakpoint);
+@mixin paddingInUnitsDirect(
+  $top,
+  $right,
+  $bottom,
+  $left,
+  $min: 0,
+  $breakpoint: 'xs'
+) {
+  padding: spacingInUnits($top, $min, $breakpoint)
+    spacingInUnits($right, $min, $breakpoint)
+    spacingInUnits($bottom, $min, $breakpoint)
+    spacingInUnits($left, $min, $breakpoint);
 }
 
-@mixin paddingInUnits($top, $right, $bottom, $left) {
-  @include paddingInUnitsDirect($top, $right, $bottom, $left);
+@mixin paddingInUnits($top, $right, $bottom, $left, $min: 0) {
+  @include paddingInUnitsDirect($top, $right, $bottom, $left, $min);
   @include media-breakpoint-up(sm) {
-    @include paddingInUnitsDirect($top, $right, $bottom, $left, 'sm');
+    @include paddingInUnitsDirect($top, $right, $bottom, $left, $min, 'sm');
   }
   @include media-breakpoint-up(md) {
-    @include paddingInUnitsDirect($top, $right, $bottom, $left, 'md');
+    @include paddingInUnitsDirect($top, $right, $bottom, $left, $min, 'md');
   }
   @include media-breakpoint-up(lg) {
-    @include paddingInUnitsDirect($top, $right, $bottom, $left, 'lg');
+    @include paddingInUnitsDirect($top, $right, $bottom, $left, $min, 'lg');
   }
   @include media-breakpoint-up(xl) {
-    @include paddingInUnitsDirect($top, $right, $bottom, $left, 'xl');
+    @include paddingInUnitsDirect($top, $right, $bottom, $left, $min, 'xl');
   }
   @include media-breakpoint-up(xxl) {
-    @include paddingInUnitsDirect($top, $right, $bottom, $left, 'xxl');
+    @include paddingInUnitsDirect($top, $right, $bottom, $left, $min, 'xxl');
   }
 }
 
 @mixin gapInUnitsDirect($row, $col, $breakpoint: 'xs') {
-  gap: spacingInUnits($row, $breakpoint) spacingInUnits($col, $breakpoint);
+  gap: spacingInUnits($row, 0, $breakpoint) spacingInUnits($col, 0, $breakpoint);
 }
 
 @mixin gapInUnits($row, $col: $row) {
@@ -112,26 +125,43 @@
   }
 }
 
-@mixin radiusInUnitsDirect($multiplier, $breakpoint: 'xs') {
-  border-radius: spacingInUnits($multiplier, $breakpoint);
+@mixin radiusInUnitsDirect(
+  $multiplierTop,
+  $multiplierBottom: $multiplierTop,
+  $min: 0,
+  $breakpoint: 'xs'
+) {
+  border-radius: spacingInUnits($multiplierTop, $min, $breakpoint)
+    spacingInUnits($multiplierTop, $min, $breakpoint)
+    spacingInUnits($multiplierBottom, $min, $breakpoint)
+    spacingInUnits($multiplierBottom, $min, $breakpoint);
 }
 
-@mixin radiusInUnits($multiplier) {
-  @include radiusInUnitsDirect($multiplier);
+@mixin radiusInUnits(
+  $multiplierTop,
+  $multiplierBottom: $multiplierTop,
+  $min: 0
+) {
+  @include radiusInUnitsDirect($multiplierTop, $multiplierBottom, $min);
   @include media-breakpoint-up(sm) {
-    @include radiusInUnitsDirect($multiplier, 'sm');
+    @include radiusInUnitsDirect($multiplierTop, $multiplierBottom, $min, 'sm');
   }
   @include media-breakpoint-up(md) {
-    @include radiusInUnitsDirect($multiplier, 'md');
+    @include radiusInUnitsDirect($multiplierTop, $multiplierBottom, $min, 'md');
   }
   @include media-breakpoint-up(lg) {
-    @include radiusInUnitsDirect($multiplier, 'lg');
+    @include radiusInUnitsDirect($multiplierTop, $multiplierBottom, $min, 'lg');
   }
   @include media-breakpoint-up(xl) {
-    @include radiusInUnitsDirect($multiplier, 'xl');
+    @include radiusInUnitsDirect($multiplierTop, $multiplierBottom, $min, 'xl');
   }
   @include media-breakpoint-up(xxl) {
-    @include radiusInUnitsDirect($multiplier, 'xxl');
+    @include radiusInUnitsDirect(
+      $multiplierTop,
+      $multiplierBottom,
+      $min,
+      'xxl'
+    );
   }
 }
 

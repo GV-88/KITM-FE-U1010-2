@@ -3,8 +3,20 @@
 .gallery {
   display: flex;
   flex-flow: row wrap;
-  @include gapInUnits(4, 6);
+  align-items: stretch;
+  justify-content: center;
+  @include gapInUnits(5, 6);
   &__item {
+    @include resetLinkStyle();
     flex: 1 1 1%;
+    min-width: 18em;
+    max-width: 32em;
+    & > *:only-child {
+      height: 100%;
+    }
+    transition: 100ms;
+    &:hover .card__picture {
+      filter: brightness(1.05);
+    }
   }
 }

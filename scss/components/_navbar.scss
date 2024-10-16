@@ -42,6 +42,11 @@
       border-width: 2px;
       border-bottom-style: solid;
     }
+    &:hover {
+      @include borderColor(primary);
+      border-width: 2px;
+      border-bottom-style: solid;
+    }
   }
 
   &__button {

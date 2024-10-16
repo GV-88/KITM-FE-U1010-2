@@ -3,7 +3,7 @@
 .hero {
   display: flex;
   flex-flow: row wrap;
-  @include gapInUnits(4, 16);
+  @include gapInUnits(4, 13);
   &__text-wrapper {
     @include paddingInUnits(9.4, 0, 0, 0);
     max-width: 36.5em;
@@ -23,7 +23,7 @@
   &__button {
     font-size: 1.25em;
     text-transform: capitalize;
-    @include paddingInUnits(4, 5, 4, 5);
+    @include paddingInUnits(4, 5, 4, 5, 8px);
   }
   &__picture-wrapper {
     flex: 1 0 15em;

@@ -26,11 +26,11 @@ body {
   }
 }
 
-.colorSurfaceContainer, .card--portrait .card__body, .popover {
+.colorSurfaceContainer, .card__body, .popover {
   background-color: #ffffff;
 }
 @media (prefers-color-scheme: dark) {
-  .colorSurfaceContainer, .card--portrait .card__body, .popover {
+  .colorSurfaceContainer, .card__body, .popover {
     background-color: #1f1d2a;
   }
 }
@@ -117,6 +117,7 @@ body {
 }
 
 .button {
+  cursor: pointer;
   font-family: inherit;
   font-weight: 500;
   font-size: inherit;
@@ -127,6 +128,7 @@ body {
   background: none;
   color: #1f1d2a;
   border-color: #1f1d2a;
+  transition: 100ms;
 }
 @media (prefers-color-scheme: dark) {
   .button {
@@ -138,11 +140,20 @@ body {
     border-color: #ffffff;
   }
 }
+.button:hover {
+  background-color: rgba(150, 198, 127, 0.25);
+}
 .button.button--primary {
   border-style: none;
 }
+.button.button--primary:hover {
+  background-color: rgb(164.472972973, 205.8567567568, 144.6432432432);
+}
 .button.button--secondary {
   border-style: none;
+}
+.button.button--secondary:hover {
+  background-color: rgb(163.2430167598, 167.530726257, 193.2569832402);
 }
 .button--floating {
   display: inline-block;
@@ -162,8 +173,8 @@ body {
 
 .popover {
   position: absolute;
-  padding: 4px 6px 4px 4px;
-  border-radius: 4px;
+  padding: 8px 8px 8px 8px;
+  border-radius: 8px 8px 8px 8px;
 }
 @media (min-width: 576px) {
   .popover {
@@ -192,27 +203,27 @@ body {
 }
 @media (min-width: 576px) {
   .popover {
-    border-radius: 8px;
+    border-radius: 8px 8px 8px 8px;
   }
 }
 @media (min-width: 768px) {
   .popover {
-    border-radius: 12px;
+    border-radius: 12px 12px 12px 12px;
   }
 }
 @media (min-width: 992px) {
   .popover {
-    border-radius: 16px;
+    border-radius: 16px 16px 16px 16px;
   }
 }
 @media (min-width: 1200px) {
   .popover {
-    border-radius: 20px;
+    border-radius: 20px 20px 20px 20px;
   }
 }
 @media (min-width: 1400px) {
   .popover {
-    border-radius: 20px;
+    border-radius: 20px 20px 20px 20px;
   }
 }
 .popover__title {
@@ -259,46 +270,163 @@ body {
 }
 
 .card {
-  text-decoration: none;
-  color: inherit;
-}
-.card a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.card--portrait .card__body {
-  text-decoration: none;
-  color: inherit;
-  padding: 4px 4px 4px 4px;
-}
-.card--portrait .card__body a {
-  text-decoration: none;
-  color: inherit;
+  border-radius: 8px 8px 8px 8px;
 }
 @media (min-width: 576px) {
-  .card--portrait .card__body {
+  .card {
+    border-radius: 8px 8px 8px 8px;
+  }
+}
+@media (min-width: 768px) {
+  .card {
+    border-radius: 12px 12px 12px 12px;
+  }
+}
+@media (min-width: 992px) {
+  .card {
+    border-radius: 16px 16px 16px 16px;
+  }
+}
+@media (min-width: 1200px) {
+  .card {
+    border-radius: 20px 20px 20px 20px;
+  }
+}
+@media (min-width: 1400px) {
+  .card {
+    border-radius: 20px 20px 20px 20px;
+  }
+}
+.card__body {
+  padding: 8px 8px 8px 8px;
+}
+@media (min-width: 576px) {
+  .card__body {
     padding: 8px 8px 8px 8px;
   }
 }
 @media (min-width: 768px) {
-  .card--portrait .card__body {
+  .card__body {
     padding: 12px 12px 12px 12px;
   }
 }
 @media (min-width: 992px) {
-  .card--portrait .card__body {
+  .card__body {
     padding: 16px 16px 16px 16px;
   }
 }
 @media (min-width: 1200px) {
-  .card--portrait .card__body {
+  .card__body {
     padding: 20px 20px 20px 20px;
   }
 }
 @media (min-width: 1400px) {
-  .card--portrait .card__body {
+  .card__body {
     padding: 20px 20px 20px 20px;
+  }
+}
+.card__title {
+  font-size: 1.25em;
+  font-weight: 500;
+  margin: 0px 0px 1.2px 0px;
+}
+@media (min-width: 576px) {
+  .card__title {
+    margin: 0px 0px 2.4px 0px;
+  }
+}
+@media (min-width: 768px) {
+  .card__title {
+    margin: 0px 0px 3.6px 0px;
+  }
+}
+@media (min-width: 992px) {
+  .card__title {
+    margin: 0px 0px 4.8px 0px;
+  }
+}
+@media (min-width: 1200px) {
+  .card__title {
+    margin: 0px 0px 6px 0px;
+  }
+}
+@media (min-width: 1400px) {
+  .card__title {
+    margin: 0px 0px 6px 0px;
+  }
+}
+.card__subtitle {
+  color: #9b948e;
+}
+@media (prefers-color-scheme: dark) {
+  .card__subtitle {
+    color: #9b948e;
+  }
+}
+
+.card--portrait {
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+.card--portrait .card__body {
+  border-radius: 0px 0px 8px 8px;
+}
+@media (min-width: 576px) {
+  .card--portrait .card__body {
+    border-radius: 0px 0px 8px 8px;
+  }
+}
+@media (min-width: 768px) {
+  .card--portrait .card__body {
+    border-radius: 0px 0px 12px 12px;
+  }
+}
+@media (min-width: 992px) {
+  .card--portrait .card__body {
+    border-radius: 0px 0px 16px 16px;
+  }
+}
+@media (min-width: 1200px) {
+  .card--portrait .card__body {
+    border-radius: 0px 0px 20px 20px;
+  }
+}
+@media (min-width: 1400px) {
+  .card--portrait .card__body {
+    border-radius: 0px 0px 20px 20px;
+  }
+}
+.card--portrait .card__picture {
+  object-fit: cover;
+  object-position: 50% 25%;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  border-radius: 8px 8px 0px 0px;
+}
+@media (min-width: 576px) {
+  .card--portrait .card__picture {
+    border-radius: 8px 8px 0px 0px;
+  }
+}
+@media (min-width: 768px) {
+  .card--portrait .card__picture {
+    border-radius: 12px 12px 0px 0px;
+  }
+}
+@media (min-width: 992px) {
+  .card--portrait .card__picture {
+    border-radius: 16px 16px 0px 0px;
+  }
+}
+@media (min-width: 1200px) {
+  .card--portrait .card__picture {
+    border-radius: 20px 20px 0px 0px;
+  }
+}
+@media (min-width: 1400px) {
+  .card--portrait .card__picture {
+    border-radius: 20px 20px 0px 0px;
   }
 }
 
@@ -306,6 +434,8 @@ body {
   position: relative;
   height: fit-content;
   margin-bottom: 30px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 .picture-block__picture {
   width: 100%;
@@ -441,6 +571,16 @@ body {
     border-color: #ffffff;
   }
 }
+.navbar__menu-item:hover {
+  border-color: #96c67f;
+  border-width: 2px;
+  border-bottom-style: solid;
+}
+@media (prefers-color-scheme: dark) {
+  .navbar__menu-item:hover {
+    border-color: #96c67f;
+  }
+}
 .navbar__button {
   align-self: start;
   padding: 2px 5px 2px 5px;
@@ -475,31 +615,31 @@ body {
 .hero {
   display: flex;
   flex-flow: row wrap;
-  gap: 4px 16px;
+  gap: 4px 13px;
 }
 @media (min-width: 576px) {
   .hero {
-    gap: 8px 32px;
+    gap: 8px 26px;
   }
 }
 @media (min-width: 768px) {
   .hero {
-    gap: 12px 48px;
+    gap: 12px 39px;
   }
 }
 @media (min-width: 992px) {
   .hero {
-    gap: 16px 64px;
+    gap: 16px 52px;
   }
 }
 @media (min-width: 1200px) {
   .hero {
-    gap: 20px 80px;
+    gap: 20px 65px;
   }
 }
 @media (min-width: 1400px) {
   .hero {
-    gap: 20px 80px;
+    gap: 20px 65px;
   }
 }
 .hero__text-wrapper {
@@ -601,7 +741,7 @@ body {
 .hero__button {
   font-size: 1.25em;
   text-transform: capitalize;
-  padding: 4px 5px 4px 5px;
+  padding: 8px 8px 8px 8px;
 }
 @media (min-width: 576px) {
   .hero__button {
@@ -704,6 +844,15 @@ body {
 }
 .companies__logo {
   height: 1.875em;
+  transition: 100ms;
+}
+.companies__logo:hover {
+  filter: brightness(0.75);
+}
+@media (prefers-color-scheme: dark) {
+  .companies__logo:hover {
+    filter: brightness(1.25);
+  }
 }
 
 .cta {
@@ -762,35 +911,52 @@ body {
 .gallery {
   display: flex;
   flex-flow: row wrap;
-  gap: 4px 6px;
+  align-items: stretch;
+  justify-content: center;
+  gap: 5px 6px;
 }
 @media (min-width: 576px) {
   .gallery {
-    gap: 8px 12px;
+    gap: 10px 12px;
   }
 }
 @media (min-width: 768px) {
   .gallery {
-    gap: 12px 18px;
+    gap: 15px 18px;
   }
 }
 @media (min-width: 992px) {
   .gallery {
-    gap: 16px 24px;
+    gap: 20px 24px;
   }
 }
 @media (min-width: 1200px) {
   .gallery {
-    gap: 20px 30px;
+    gap: 25px 30px;
   }
 }
 @media (min-width: 1400px) {
   .gallery {
-    gap: 20px 30px;
+    gap: 25px 30px;
   }
 }
 .gallery__item {
+  text-decoration: none;
+  color: inherit;
   flex: 1 1 1%;
+  min-width: 18em;
+  max-width: 32em;
+  transition: 100ms;
+}
+.gallery__item a {
+  text-decoration: none;
+  color: inherit;
+}
+.gallery__item > *:only-child {
+  height: 100%;
+}
+.gallery__item:hover .card__picture {
+  filter: brightness(1.05);
 }
 
 .page__container {

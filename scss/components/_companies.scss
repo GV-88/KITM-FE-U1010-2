@@ -20,5 +20,12 @@
   }
   &__logo {
     height: 1.875em;
+    transition: 100ms;
+    &:hover {
+      filter: brightness(0.75);
+      @media (prefers-color-scheme: dark) {
+        filter: brightness(1.25);
+      }
+    }
   }
 }

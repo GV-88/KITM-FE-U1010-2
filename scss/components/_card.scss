@@ -2,13 +2,43 @@
 @use '../utilities' as *;
 
 .card {
-  @include resetLinkStyle();
+  $spacingUnits: 4;
+  $minSpacing: 8px;
+  @include radiusInUnits($spacingUnits, $spacingUnits, $minSpacing);
+  &__body {
+    @extend .colorSurfaceContainer;
+    @include paddingInUnits(
+      $spacingUnits,
+      $spacingUnits,
+      $spacingUnits,
+      $spacingUnits,
+      $minSpacing
+    );
+  }
+  &__title {
+    font-size: 1.25em;
+    @include fontWeight(medium);
+    @include marginInUnits(0, 0, 1.2, 0);
+  }
+  &__subtitle {
+    @include textColor(onSurfaceVariant);
+  }
 }
 
 .card--portrait {
+  $spacingUnits: 4;
+  $minSpacing: 8px;
+  display: grid;
+  grid-template-rows: 1fr auto;
   & .card__body {
-    @include resetLinkStyle();
-    @extend .colorSurfaceContainer;
-    @include paddingInUnits(4, 4, 4, 4);
+    @include radiusInUnits(0, $spacingUnits, $minSpacing);
+  }
+  & .card__picture {
+    object-fit: cover;
+    object-position: 50% 25%;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    @include radiusInUnits($spacingUnits, 0, $minSpacing);
   }
 }

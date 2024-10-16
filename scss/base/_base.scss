@@ -8,7 +8,7 @@ body {
   @extend .colorSurface;
 
   @include sizeBaseFont();
-  line-height: 1.5;
+  line-height: 1.5; // luckily this persists throughout the whole document
 
   background: url('../../assets/backgrounds/Group\ 16.svg') no-repeat -17% -2% /
       75% auto,

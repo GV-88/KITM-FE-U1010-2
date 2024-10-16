@@ -2,9 +2,10 @@
 @use '../utilities' as *;
 
 .popover {
+  $minSpacing: 8px;
   position: absolute;
-  @include paddingInUnits(4, 6, 4, 4);
-  @include radiusInUnits(4);
+  @include paddingInUnits(4, 6, 4, 4, $minSpacing);
+  @include radiusInUnits(4, 4, $minSpacing);
   @extend .colorSurfaceContainer;
   &__title {
     @include fontWeight(medium);

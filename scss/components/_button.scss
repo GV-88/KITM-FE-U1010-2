@@ -2,6 +2,7 @@
 @use '../utilities' as *;
 
 .button {
+  cursor: pointer;
   font-family: inherit;
   @include fontWeight(medium);
   font-size: inherit;
@@ -12,14 +13,24 @@
   background: none;
   @include textColor('onSurface');
   @include borderColor('onSurface');
+  transition: 100ms;
+  &:hover {
+    background-color: adjust-color($color: color(primary), $alpha: -0.75);
+  }
   //SPECIFICITY ISSUES!!!
   &.button--primary {
     @extend .colorPrimary;
     border-style: none;
+    &:hover {
+      background-color: adjust-color($color: color(primary), $lightness: 5%);
+    }
   }
   &.button--secondary {
     @extend .colorSecondary;
     border-style: none;
+    &:hover {
+      background-color: adjust-color($color: color(secondary), $lightness: 5%);
+    }
   }
   &--floating {
     display: inline-block;
