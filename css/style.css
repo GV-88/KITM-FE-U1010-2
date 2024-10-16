@@ -846,6 +846,9 @@ body {
   height: 1.875em;
   transition: 100ms;
 }
+.companies__logo img {
+  height: 100%;
+}
 .companies__logo:hover {
   filter: brightness(0.75);
 }
