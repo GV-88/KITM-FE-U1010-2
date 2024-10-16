@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SASS atsiskaitymas</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="page__container">
+      <header>
+        <div class="navbar">
+          <div class="navbar__brand">Shayna</div>
+          <!-- is this correct semantic for <nav>, or should it include all the elements in header? -->
+          <nav>
+            <ul class="navbar__menu">
+              <li class="navbar__menu-item" active><a href="#">Home</a></li>
+              <li class="navbar__menu-item"><a href="#">Start</a></li>
+              <li class="navbar__menu-item"><a href="#">Browse</a></li>
+              <li class="navbar__menu-item"><a href="#">Pricing</a></li>
+              <li class="navbar__menu-item"><a href="#">Story</a></li>
+            </ul>
+          </nav>
+          <button class="navbar__button button">Sign in</button>
+        </div>
+      </header>
+      <main class="hero">
+        <div class="hero__text-wrapper">
+          <h1 class="hero__title">Learn UI design from the real expert</h1>
+          <p class="hero__subtitle">
+            Stop wasting time browsing around and start learning from our
+            designers for your better career
+          </p>
+          <button class="hero__button button button--primary">
+            Get started
+          </button>
+        </div>
+        <div class="hero__picture-wrapper picture-block picture-block--round">
+          <img
+            class="picture-block__picture"
+            src="assets/pictures/portrait-serious-dark-haired-asian-woman-keeps-finger-chin-looks-mysteriously-front-considers-something-dressed-blue-jumper-isolated-brown-wall 1.jpg"
+            alt="person portrait"
+          />
+          <button
+            class="picture-block__button button button--floating button--icon button--secondary"
+          >
+            <img
+              class="button--icon__icon"
+              src="assets/icons/Polygon 1.svg"
+              alt="go"
+            />
+          </button>
+          <div class="picture-block__popover popover">
+            <div class="popover__title">Corellina Xo</div>
+            <div class="popover__subtitle">UI designer</div>
+            <div class="popover__star-rating star-rating" rating="5">
+              <img
+                src="assets/icons/Star 1.svg"
+                alt="*"
+                class="star-rating__star"
+              />
+              <img
+                src="assets/icons/Star 1.svg"
+                alt="*"
+                class="star-rating__star"
+              />
+              <img
+                src="assets/icons/Star 1.svg"
+                alt="*"
+                class="star-rating__star"
+              />
+              <img
+                src="assets/icons/Star 1.svg"
+                alt="*"
+                class="star-rating__star"
+              />
+              <img
+                src="assets/icons/Star 1.svg"
+                alt="*"
+                class="star-rating__star"
+              />
+            </div>
+          </div>
+        </div>
+      </main>
+      <section class="companies">
+        <h2 class="companies__title">Trusted by global companies</h2>
+        <div class="companies__logos">
+          <a
+            class="companies__logo"
+            target="_blank"
+            href="https://www.apple.com/"
+          >
+            <img src="assets/logos/apple-11 1.svg" alt="Apple" />
+          </a>
+          <a
+            class="companies__logo"
+            target="_blank"
+            href="https://www.adobe.com/"
+          >
+            <img src="assets/logos/Group 13.svg" alt="Adobe" />
+          </a>
+          <a class="companies__logo" target="_blank" href="https://slack.com/"
+            ><img src="assets/logos/slack-2 1.svg" alt="Slack"
+          /></a>
+          <a
+            class="companies__logo"
+            target="_blank"
+            href="https://www.spotify.com/about-us/"
+            ><img src="assets/logos/spotify-1 1.svg" alt="Spotify"
+          /></a>
+          <a
+            class="companies__logo"
+            target="_blank"
+            href="https://about.google/"
+            ><img src="assets/logos/google-2015 1.svg" alt="Google"
+          /></a>
+        </div>
+      </section>
+      <section class="cta-and-gallery">
+        <div class="cta">
+          <h2 class="cta__title">Grow today</h2>
+          <a href="#" class="cta__link"
+            >Start your <span class="cta__highlight">career</span></a
+          >
+        </div>
+        <div class="gallery">
+          <a class="gallery__item" href="#">
+            <div class="card card--portrait">
+              <img
+                src="assets/pictures/image 1.jpg"
+                alt="person portrait"
+                class="card__picture"
+              />
+              <div class="card__body">
+                <h3 class="card__title">Aisyah</h3>
+                <div class="card__subtitle">I teach how to start UX</div>
+              </div>
+            </div>
+          </a>
+          <a class="gallery__item" href="#">
+            <div class="card card--portrait">
+              <img
+                src="assets/pictures/image 2.jpg"
+                alt="person portrait"
+                class="card__picture"
+              />
+              <div class="card__body">
+                <h3 class="card__title">Angga</h3>
+                <div class="card__subtitle">I teach how to design test</div>
+              </div>
+            </div>
+          </a>
+          <a class="gallery__item" href="#">
+            <div class="card card--portrait">
+              <img
+                src="assets/pictures/image 3.jpg"
+                alt="person portrait"
+                class="card__picture"
+              />
+              <div class="card__body">
+                <h3 class="card__title">Mabdul</h3>
+                <div class="card__subtitle">I teach how to asses design</div>
+              </div>
+            </div>
+          </a>
+          <a class="gallery__item" href="#">
+            <div class="card card--portrait">
+              <img
+                src="assets/pictures/image 4.jpg"
+                alt="person portrait"
+                class="card__picture"
+              />
+              <div class="card__body">
+                <h3 class="card__title">Wo You</h3>
+                <div class="card__subtitle">I teach how to do icons</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

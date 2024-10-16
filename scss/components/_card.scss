@@ -1,0 +1,14 @@
+@use '../abstracts' as *;
+@use '../utilities' as *;
+
+.card {
+  @include resetLinkStyle();
+}
+
+.card--portrait {
+  & .card__body {
+    @include resetLinkStyle();
+    @extend .colorSurfaceContainer;
+    @include paddingInUnits(4, 4, 4, 4);
+  }
+}

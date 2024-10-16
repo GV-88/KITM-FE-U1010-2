@@ -1,0 +1,40 @@
+@use '../abstracts' as *;
+@use '../utilities' as *;
+
+.button {
+  font-family: inherit;
+  @include fontWeight(medium);
+  font-size: inherit;
+  padding: 0.625em 1em;
+  border-radius: 6px;
+  border-style: solid;
+  border-width: 1px;
+  background: none;
+  @include textColor('onSurface');
+  @include borderColor('onSurface');
+  //SPECIFICITY ISSUES!!!
+  &.button--primary {
+    @extend .colorPrimary;
+    border-style: none;
+  }
+  &.button--secondary {
+    @extend .colorSecondary;
+    border-style: none;
+  }
+  &--floating {
+    display: inline-block;
+    position: absolute;
+  }
+}
+
+//SPECIFICITY ISSUES!!!
+.button.button--icon {
+  @extend .roundCircle;
+  padding: 0.5em;
+}
+.button--icon__icon {
+  display: block;
+  width: 1em;
+  height: 1em;
+  padding: 0.125em;
+}

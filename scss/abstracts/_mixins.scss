@@ -1,0 +1,210 @@
+@use 'variables' as *;
+
+//#region media breakpoints (taken from Bootstrap)
+
+// Minimum breakpoint width. Null for the smallest (first) breakpoint.
+//
+//    >> breakpoint-min(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1400px))
+//    576px
+@function breakpoint-min($name, $breakpoints: $breakpoints) {
+  $min: map-get($breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+
+// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+// Makes the @content apply to the given breakpoint and wider.
+@mixin media-breakpoint-up($name, $breakpoints: $breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+//#endregion
+
+//#region sizing
+
+@function sizeUnitSpacing($breakpoint: 'xs') {
+  @return map-get($sizeUnitsSpacing, $breakpoint);
+}
+
+@function spacingInUnits(
+  $multiplier,
+  $breakpoint: 'xs',
+  $map: $sizeUnitsSpacing
+) {
+  $unit: map-get($map, $breakpoint);
+  @return $unit * $multiplier;
+}
+
+@mixin marginInUnitsDirect($top, $right, $bottom, $left, $breakpoint: 'xs') {
+  margin: spacingInUnits($top, $breakpoint) spacingInUnits($right, $breakpoint)
+    spacingInUnits($bottom, $breakpoint) spacingInUnits($left, $breakpoint);
+}
+
+@mixin marginInUnits($top, $right, $bottom, $left) {
+  @include marginInUnitsDirect($top, $right, $bottom, $left);
+  @include media-breakpoint-up(sm) {
+    @include marginInUnitsDirect($top, $right, $bottom, $left, 'sm');
+  }
+  @include media-breakpoint-up(md) {
+    @include marginInUnitsDirect($top, $right, $bottom, $left, 'md');
+  }
+  @include media-breakpoint-up(lg) {
+    @include marginInUnitsDirect($top, $right, $bottom, $left, 'lg');
+  }
+  @include media-breakpoint-up(xl) {
+    @include marginInUnitsDirect($top, $right, $bottom, $left, 'xl');
+  }
+  @include media-breakpoint-up(xxl) {
+    @include marginInUnitsDirect($top, $right, $bottom, $left, 'xxl');
+  }
+}
+
+@mixin paddingInUnitsDirect($top, $right, $bottom, $left, $breakpoint: 'xs') {
+  padding: spacingInUnits($top, $breakpoint) spacingInUnits($right, $breakpoint)
+    spacingInUnits($bottom, $breakpoint) spacingInUnits($left, $breakpoint);
+}
+
+@mixin paddingInUnits($top, $right, $bottom, $left) {
+  @include paddingInUnitsDirect($top, $right, $bottom, $left);
+  @include media-breakpoint-up(sm) {
+    @include paddingInUnitsDirect($top, $right, $bottom, $left, 'sm');
+  }
+  @include media-breakpoint-up(md) {
+    @include paddingInUnitsDirect($top, $right, $bottom, $left, 'md');
+  }
+  @include media-breakpoint-up(lg) {
+    @include paddingInUnitsDirect($top, $right, $bottom, $left, 'lg');
+  }
+  @include media-breakpoint-up(xl) {
+    @include paddingInUnitsDirect($top, $right, $bottom, $left, 'xl');
+  }
+  @include media-breakpoint-up(xxl) {
+    @include paddingInUnitsDirect($top, $right, $bottom, $left, 'xxl');
+  }
+}
+
+@mixin gapInUnitsDirect($row, $col, $breakpoint: 'xs') {
+  gap: spacingInUnits($row, $breakpoint) spacingInUnits($col, $breakpoint);
+}
+
+@mixin gapInUnits($row, $col: $row) {
+  @include gapInUnitsDirect($row, $col);
+  @include media-breakpoint-up(sm) {
+    @include gapInUnitsDirect($row, $col, 'sm');
+  }
+  @include media-breakpoint-up(md) {
+    @include gapInUnitsDirect($row, $col, 'md');
+  }
+  @include media-breakpoint-up(lg) {
+    @include gapInUnitsDirect($row, $col, 'lg');
+  }
+  @include media-breakpoint-up(xl) {
+    @include gapInUnitsDirect($row, $col, 'xl');
+  }
+  @include media-breakpoint-up(xxl) {
+    @include gapInUnitsDirect($row, $col, 'xxl');
+  }
+}
+
+@mixin radiusInUnitsDirect($multiplier, $breakpoint: 'xs') {
+  border-radius: spacingInUnits($multiplier, $breakpoint);
+}
+
+@mixin radiusInUnits($multiplier) {
+  @include radiusInUnitsDirect($multiplier);
+  @include media-breakpoint-up(sm) {
+    @include radiusInUnitsDirect($multiplier, 'sm');
+  }
+  @include media-breakpoint-up(md) {
+    @include radiusInUnitsDirect($multiplier, 'md');
+  }
+  @include media-breakpoint-up(lg) {
+    @include radiusInUnitsDirect($multiplier, 'lg');
+  }
+  @include media-breakpoint-up(xl) {
+    @include radiusInUnitsDirect($multiplier, 'xl');
+  }
+  @include media-breakpoint-up(xxl) {
+    @include radiusInUnitsDirect($multiplier, 'xxl');
+  }
+}
+
+@function sizeBaseFont($breakpoint: 'xs') {
+  @return map-get($sizeBaseFont, $breakpoint);
+}
+
+@mixin sizeBaseFont() {
+  font-size: sizeBaseFont();
+  @include media-breakpoint-up(sm) {
+    font-size: sizeBaseFont('sm');
+  }
+  @include media-breakpoint-up(md) {
+    font-size: sizeBaseFont('md');
+  }
+  @include media-breakpoint-up(lg) {
+    font-size: sizeBaseFont('lg');
+  }
+  @include media-breakpoint-up(xl) {
+    font-size: sizeBaseFont('xl');
+  }
+  @include media-breakpoint-up(xxl) {
+    font-size: sizeBaseFont('xxl');
+  }
+}
+
+//#endregion
+
+@mixin fontWeight($keyword) {
+  font-weight: map-get($fontWeights, $keyword);
+}
+
+//#region color
+
+@function color($name, $mode: 'light') {
+  $c: map-get($colors, $mode, $name);
+  @if $c == null {
+    $c: map-get($colors, 'universal', $name);
+  }
+  @if $c == null {
+    $c: map-get($colorPalette, $name);
+  }
+  @return $c;
+}
+
+@mixin textColor($name) {
+  color: color($name, 'light');
+  @media (prefers-color-scheme: dark) {
+    color: color($name, 'dark');
+  }
+}
+
+@mixin backgroundColor($name) {
+  background-color: color($name, 'light');
+  @media (prefers-color-scheme: dark) {
+    background-color: color($name, 'dark');
+  }
+}
+
+@mixin borderColor($name) {
+  border-color: color($name, 'light');
+  @media (prefers-color-scheme: dark) {
+    border-color: color($name, 'dark');
+  }
+}
+
+//#endregion
+
+@mixin resetLinkStyle($foregroundColor: inherit) {
+  text-decoration: none;
+  color: $foregroundColor;
+  & a {
+    text-decoration: none;
+    color: $foregroundColor;
+  }
+}

@@ -1,0 +1,25 @@
+@use '../abstracts' as *;
+@use '../utilities' as *;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  @extend .colorSurface;
+
+  @include sizeBaseFont();
+  line-height: 1.5;
+
+  background: url('../../assets/backgrounds/Group\ 16.svg') no-repeat -17% -2% /
+      75% auto,
+    linear-gradient(135deg, color(greyLight1) 0%, color(greyLight2) 100% 100%)
+      no-repeat 0 0 / 100% color(surface);
+  @media (prefers-color-scheme: dark) {
+    background: linear-gradient(
+        135deg,
+        color(greyDark1) 0%,
+        color(greyDark2) 100% 100%
+      )
+      no-repeat 0 0 / 100% color(surface, 'dark');
+  }
+}

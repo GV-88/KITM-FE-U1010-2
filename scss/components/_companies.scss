@@ -1,0 +1,24 @@
+@use '../abstracts' as *;
+
+.companies {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  @include gapInUnits(6);
+  &__title {
+    font-size: 1em;
+    @include fontWeight(medium);
+    text-transform: capitalize;
+    margin: 0;
+  }
+  &__logos {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: stretch;
+    @include gapInUnits(2, 12);
+  }
+  &__logo {
+    height: 1.875em;
+  }
+}

@@ -1,0 +1,24 @@
+@use '../abstracts' as *;
+
+.cta {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  @include gapInUnits(2);
+  &__title {
+    font-size: 1.125em;
+    @include fontWeight(medium);
+    text-transform: capitalize;
+    margin: 0;
+  }
+  &__link {
+    @include resetLinkStyle();
+    font-size: 2em;
+    @include fontWeight(semibold);
+    text-transform: capitalize;
+  }
+  &__highlight {
+    text-decoration: underline;
+    text-decoration-color: color(primary);
+  }
+}

@@ -1,0 +1,80 @@
+//#region colors
+
+$colorPalette: (
+  'black': #1f1d2a,
+  'white': #ffffff,
+  'green': #96c67f,
+  'cream': #9b948e,
+  'lavender': #9499b7,
+  'yellow': #ffb988,
+  'greyLight': #ebe7e3,
+  'greyLight1': #f0e8e2,
+  'greyLight2': #e6e6e4,
+  'greyDark': #3b3733,
+  'greyDark1': #303832,
+  'greyDark2': #363634,
+);
+
+$colors: (
+  light: (
+    'surface': map-get($colorPalette, 'greyLight'),
+    'surfaceContainer': map-get($colorPalette, 'white'),
+    'onSurface': map-get($colorPalette, 'black'),
+    'onPrimary': map-get($colorPalette, 'black'),
+    'onSecondary': map-get($colorPalette, 'white'),
+  ),
+  dark: (
+    'surface': map-get($colorPalette, 'greyDark'),
+    'surfaceContainer': map-get($colorPalette, 'black'),
+    'onSurface': map-get($colorPalette, 'white'),
+    'onPrimary': map-get($colorPalette, 'white'),
+    'onSecondary': map-get($colorPalette, 'black'),
+  ),
+  universal: (
+    'onSurfaceVariant': map-get($colorPalette, 'cream'),
+    'primary': map-get($colorPalette, 'green'),
+    'secondary': map-get($colorPalette, 'lavender'),
+  ),
+);
+
+//#endregion
+
+//#region sizes
+
+// based on https://getbootstrap.com/docs/5.3/layout/breakpoints/
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+$sizeUnitsSpacing: (
+  xs: 1px,
+  sm: 2px,
+  md: 3px,
+  lg: 4px,
+  xl: 5px,
+  xxl: 5px,
+);
+
+$sizeBaseFont: (
+  // maybe use rem or em?
+  xs: 15px,
+  sm: 15px,
+  md: 15px,
+  lg: 15px,
+  xl: 16px,
+  xxl: 16px
+);
+
+//#endregion
+
+$fontWeights: (
+  light: 300,
+  regular: 400,
+  medium: 500,
+  semibold: 600,
+);

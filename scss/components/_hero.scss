@@ -1,0 +1,32 @@
+@use '../abstracts' as *;
+
+.hero {
+  display: flex;
+  flex-flow: row wrap;
+  @include gapInUnits(4, 16);
+  &__text-wrapper {
+    @include paddingInUnits(9.4, 0, 0, 0);
+    max-width: 36.5em;
+  }
+  &__title {
+    font-size: 3.4375em;
+    @include fontWeight(semibold);
+    text-transform: capitalize;
+    @include marginInUnits(3, 0, 6, 0);
+  }
+  &__subtitle {
+    line-height: 1.875;
+    @include marginInUnits(2, 0, 10, 0);
+    @include textColor(onSurfaceVariant);
+    max-width: 29em;
+  }
+  &__button {
+    font-size: 1.25em;
+    text-transform: capitalize;
+    @include paddingInUnits(4, 5, 4, 5);
+  }
+  &__picture-wrapper {
+    flex: 1 0 15em;
+    max-width: 31.25em;
+  }
+}

@@ -1,0 +1,52 @@
+@use '../abstracts' as *;
+
+.navbar {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  @include gapInUnits(5);
+
+  &__brand {
+    @include fontWeight(medium);
+    font-size: 2em;
+  }
+
+  &__menu {
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    @include gapInUnits(1, 8);
+    //TODO: hamburger switch
+  }
+
+  &__menu-item {
+    padding: 0;
+    & a {
+      @include resetLinkStyle();
+
+      @include paddingInUnits(0, 1, 0, 1);
+
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
+      // @include paddingInUnits(2, 2, 2, 2);
+      // @extend .interactive;
+    }
+    &[active] {
+      @include fontWeight(medium);
+      @include borderColor(onSurface);
+      border-width: 2px;
+      border-bottom-style: solid;
+    }
+  }
+
+  &__button {
+    align-self: start;
+    @include paddingInUnits(2, 5, 2, 5);
+    text-transform: capitalize;
+  }
+}

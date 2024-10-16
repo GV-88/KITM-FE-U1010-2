@@ -1,0 +1,21 @@
+@use '../abstracts' as *;
+@use '../utilities' as *;
+
+.popover {
+  position: absolute;
+  @include paddingInUnits(4, 6, 4, 4);
+  @include radiusInUnits(4);
+  @extend .colorSurfaceContainer;
+  &__title {
+    @include fontWeight(medium);
+    margin-bottom: 0.125em;
+  }
+  &__subtitle {
+    font-size: 0.875em;
+    @include fontWeight(light);
+    @include textColor(onSurfaceVariant);
+    &:not(.popover__subtitle:last-child) {
+      @include marginInUnits(0, 0, 4, 0);
+    }
+  }
+}

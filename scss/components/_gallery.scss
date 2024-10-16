@@ -1,0 +1,10 @@
+@use '../abstracts' as *;
+
+.gallery {
+  display: flex;
+  flex-flow: row wrap;
+  @include gapInUnits(4, 6);
+  &__item {
+    flex: 1 1 1%;
+  }
+}

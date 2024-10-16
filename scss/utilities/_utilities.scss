@@ -1,0 +1,30 @@
+@use '../abstracts/mixins' as *;
+
+.colorSurface {
+  @include textColor('onSurface');
+  @include backgroundColor('surface');
+}
+
+.colorSurfaceContainer {
+  @include textColor('onSurfaceContainer');
+  @include backgroundColor('surfaceContainer');
+}
+
+.colorPrimary {
+  @include textColor('onPrimary');
+  @include backgroundColor('primary');
+}
+
+.colorSecondary {
+  @include textColor('onSecondary');
+  @include backgroundColor('secondary');
+}
+
+.interactive {
+  min-width: 48px;
+  min-height: 48px;
+}
+
+.roundCircle {
+  border-radius: 50%;
+}

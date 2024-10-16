@@ -1,0 +1,23 @@
+@use '../utilities' as *;
+
+.picture-block {
+  position: relative;
+  height: fit-content;
+  margin-bottom: 30px;
+  &__picture {
+    width: 100%;
+  }
+  &--round .picture-block__picture {
+    display: block;
+    @extend .roundCircle;
+  }
+  &__popover {
+    left: 30px;
+    bottom: -30px;
+  }
+  & .button--floating {
+    font-size: 2.5em;
+    top: calc(50% - 1em);
+    right: -1em;
+  }
+}
