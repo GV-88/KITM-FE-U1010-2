@@ -16,7 +16,7 @@
     flex-flow: row wrap;
     justify-content: center;
     align-items: stretch;
-    @include gapInUnits(2, 12);
+    @include gapInUnits(12);
   }
   &__logo {
     height: 1.875em;

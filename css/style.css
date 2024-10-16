@@ -815,31 +815,31 @@ body {
   flex-flow: row wrap;
   justify-content: center;
   align-items: stretch;
-  gap: 2px 12px;
+  gap: 12px 12px;
 }
 @media (min-width: 576px) {
   .companies__logos {
-    gap: 4px 24px;
+    gap: 24px 24px;
   }
 }
 @media (min-width: 768px) {
   .companies__logos {
-    gap: 6px 36px;
+    gap: 36px 36px;
   }
 }
 @media (min-width: 992px) {
   .companies__logos {
-    gap: 8px 48px;
+    gap: 48px 48px;
   }
 }
 @media (min-width: 1200px) {
   .companies__logos {
-    gap: 10px 60px;
+    gap: 60px 60px;
   }
 }
 @media (min-width: 1400px) {
   .companies__logos {
-    gap: 10px 60px;
+    gap: 60px 60px;
   }
 }
 .companies__logo {
