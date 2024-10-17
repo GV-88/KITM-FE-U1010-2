@@ -10,7 +10,7 @@ body {
   @include sizeBaseFont();
   line-height: 1.5; // luckily this persists throughout the whole document
 
-  background: url('../../assets/backgrounds/Group\ 16.svg') no-repeat -17% -2% /
+  background: url('../assets/backgrounds/Group\ 16.svg') no-repeat -17% -2% /
       75% auto,
     linear-gradient(135deg, color(greyLight1) 0%, color(greyLight2) 100% 100%)
       no-repeat 0 0 / 100% color(surface);

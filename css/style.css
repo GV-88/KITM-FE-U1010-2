@@ -79,7 +79,7 @@ body {
   min-height: 100vh;
   font-size: 15px;
   line-height: 1.5;
-  background: url("../../assets/backgrounds/Group 16.svg") no-repeat -17% -2%/75% auto, linear-gradient(135deg, #f0e8e2 0%, #e6e6e4 100% 100%) no-repeat 0 0/100% #ebe7e3;
+  background: url("../assets/backgrounds/Group 16.svg") no-repeat -17% -2%/75% auto, linear-gradient(135deg, #f0e8e2 0%, #e6e6e4 100% 100%) no-repeat 0 0/100% #ebe7e3;
 }
 @media (min-width: 576px) {
   body {
